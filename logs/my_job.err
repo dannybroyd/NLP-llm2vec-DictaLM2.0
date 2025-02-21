@@ -1,0 +1,109 @@
+/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d
+Found cached dataset very-small-chat-dataset (/home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d)
+Loading Dataset info from /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d
+Found cached dataset very-small-chat-dataset (/home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d)
+Loading Dataset info from /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d
+Found cached dataset very-small-chat-dataset (/home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d)
+Loading Dataset info from /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d
+[INFO|configuration_utils.py:733] 2025-02-21 16:14:25,193 >> loading configuration file config.json from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/config.json
+[INFO|configuration_utils.py:800] 2025-02-21 16:14:25,197 >> Model config MistralConfig {
+  "_name_or_path": "dicta-il/dictalm2.0-instruct",
+  "architectures": [
+    "MistralForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "document_attention": true,
+  "eos_token_id": 2,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 32768,
+  "model_type": "mistral",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "rms_norm_eps": 1e-05,
+  "rope_theta": 10000.0,
+  "sliding_window": 4096,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.44.2",
+  "use_cache": false,
+  "vocab_size": 33152
+}
+
+[INFO|tokenization_utils_base.py:2269] 2025-02-21 16:14:25,372 >> loading file tokenizer.model from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/tokenizer.model
+[INFO|tokenization_utils_base.py:2269] 2025-02-21 16:14:25,373 >> loading file tokenizer.json from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/tokenizer.json
+[INFO|tokenization_utils_base.py:2269] 2025-02-21 16:14:25,373 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2269] 2025-02-21 16:14:25,373 >> loading file special_tokens_map.json from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2269] 2025-02-21 16:14:25,373 >> loading file tokenizer_config.json from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/tokenizer_config.json
+[INFO|modeling_utils.py:3678] 2025-02-21 16:14:25,473 >> loading weights file model.safetensors from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/model.safetensors.index.json
+[INFO|modeling_utils.py:1606] 2025-02-21 16:14:25,480 >> Instantiating MistralBiForMNTP model under default dtype torch.bfloat16.
+[WARNING|logging.py:328] 2025-02-21 16:14:25,485 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:1038] 2025-02-21 16:14:25,490 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "use_cache": false
+}
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  4.58it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  5.71it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  6.16it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.87it/s]
+[INFO|modeling_utils.py:4507] 2025-02-21 16:14:26,247 >> All model checkpoint weights were used when initializing MistralBiForMNTP.
+
+[INFO|modeling_utils.py:4515] 2025-02-21 16:14:26,247 >> All the weights of MistralBiForMNTP were initialized from the model checkpoint at dicta-il/dictalm2.0-instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use MistralBiForMNTP for predictions without further training.
+[INFO|configuration_utils.py:993] 2025-02-21 16:14:26,406 >> loading configuration file generation_config.json from cache at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/models--dicta-il--dictalm2.0-instruct/snapshots/257c6023d6ac1bfa12110b7b17e7600da7da4e1e/generation_config.json
+[INFO|configuration_utils.py:1038] 2025-02-21 16:14:26,407 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+Running tokenizer on every text in dataset:   0%|          | 0/19 [00:00<?, ? examples/s]Caching processed dataset at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d/cache-4f1145c976df6273.arrow
+Running tokenizer on every text in dataset: 100%|██████████| 19/19 [00:00<00:00, 303.25 examples/s]
+Running tokenizer on every text in dataset:   0%|          | 0/1 [00:00<?, ? examples/s]Caching processed dataset at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d/cache-19dc8d10752efcc0.arrow
+Running tokenizer on every text in dataset: 100%|██████████| 1/1 [00:00<00:00, 11.11 examples/s]
+Grouping texts in chunks of 512:   0%|          | 0/19 [00:00<?, ? examples/s]Caching processed dataset at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d/cache-28fa4777aa7a4d24.arrow
+Grouping texts in chunks of 512: 100%|██████████| 19/19 [00:00<00:00, 299.63 examples/s]
+Grouping texts in chunks of 512:   0%|          | 0/1 [00:00<?, ? examples/s]Caching processed dataset at /home/joberant/NLP_2425a/doronaloni/huggingface_cache/datasets/beniben0___very-small-chat-dataset/default/0.0.0/41995359929f1777c524c817619fe61cf3d7ee3d/cache-860a736f06dcc458.arrow
+Grouping texts in chunks of 512: 100%|██████████| 1/1 [00:00<00:00, 37.61 examples/s]
+/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/transformers/utils/import_utils.py:575: FutureWarning: `is_torch_tpu_available` is deprecated and will be removed in 4.41.0. Please use the `is_torch_xla_available` instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "experiments/run_mntp.py", line 999, in <module>
+    main()
+  File "experiments/run_mntp.py", line 919, in main
+    trainer = MNTPTrainer(
+  File "experiments/run_mntp.py", line 442, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/transformers/trainer.py", line 535, in __init__
+    self._move_model_to_device(model, args.device)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/transformers/trainer.py", line 782, in _move_model_to_device
+    model = model.to(device)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/transformers/modeling_utils.py", line 2905, in to
+    return super().to(*args, **kwargs)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1174, in to
+    return self._apply(convert)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  [Previous line repeated 5 more times]
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/home/joberant/NLP_2425a/doronaloni/anaconda3/envs/nlp_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1160, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 11.90 GiB of which 92.62 MiB is free. Including non-PyTorch memory, this process has 11.80 GiB memory in use. Of the allocated memory 11.65 GiB is allocated by PyTorch, and 5.69 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+slurmstepd: error: _cgroup_procs_check: failed on path (null)/cgroup.procs: No such file or directory
+slurmstepd: error: Cannot write to cgroup.procs for (null)
+slurmstepd: error: Unable to move pid 3374883 to init root cgroup (null)
