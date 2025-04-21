@@ -7,7 +7,7 @@
 # You may obtain a copy of the License at
 #
 #     http://www.apache.org/licenses/LICENSE-2.0
-#
+#train_result = trainer.train(resume_from_checkpoint=checkpoint)
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -75,6 +75,7 @@ MODEL_TYPES = tuple(conf.model_type for conf in MODEL_CONFIG_CLASSES)
 def get_model_class(config):
     config_class_name = config.__class__.__name__
     if config_class_name == "MistralConfig":
+        #return mistral with bi directional attantion activated
         return MistralBiForMNTP
     elif config_class_name == "LlamaConfig":
         return LlamaBiForMNTP
@@ -277,7 +278,7 @@ class DataTrainingArguments:
         metadata={"help": "Overwrite the cached training and evaluation sets"},
     )
     validation_split_percentage: Optional[int] = field(
-        default=5,
+        default=1,
         metadata={
             "help": "The percentage of the train set used as validation set in case there's no validation split"
         },
@@ -466,13 +467,14 @@ def main():
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
-
+    #init parser for future use
     parser = HfArgumentParser(
         (ModelArguments, DataTrainingArguments, TrainingArguments, CustomArguments)
     )
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
+        #now read the config file and get the args from "parser"
         model_args, data_args, training_args, custom_args = parser.parse_json_file(
             json_file=os.path.abspath(sys.argv[1])
         )
@@ -584,7 +586,7 @@ def main():
             raw_datasets["train"] = load_dataset(
                 data_args.dataset_name,
                 data_args.dataset_config_name,
-                split=f"train[{data_args.validation_split_percentage}%:]",
+                split=f"train[:{data_args.validation_split_percentage}%]",
                 cache_dir=model_args.cache_dir,
                 token=model_args.token,
                 streaming=data_args.streaming,
@@ -618,11 +620,12 @@ def main():
             raw_datasets["train"] = load_dataset(
                 extension,
                 data_files=data_files,
-                split=f"train[{data_args.validation_split_percentage}%:]",
+                split=f"train[:{data_args.validation_split_percentage}%]",
                 cache_dir=model_args.cache_dir,
                 token=model_args.token,
             )
-
+    #take only 50 examples as the train is realy small
+    raw_datasets["validation"] = raw_datasets["validation"].shuffle(seed=42).select(range(256))
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.
 

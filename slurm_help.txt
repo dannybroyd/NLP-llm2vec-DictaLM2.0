@@ -1,8 +1,0 @@
-make a job.slurm file containing the description for the job
-
-to run use:
-sbatch job.slurm
-
-to check the status:
-sacct -X --format=JobID,JobName,Partition,State,ExitCode -u $USER
-

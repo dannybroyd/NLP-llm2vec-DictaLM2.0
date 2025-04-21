@@ -10,6 +10,9 @@ from torch import nn
 from accelerate import Accelerator, DistributedDataParallelKwargs
 from accelerate.logging import get_logger
 
+from llm2vec.dataset.dataset import TrainSample
+from itertools import islice
+
 import transformers
 from transformers import (
     MODEL_FOR_MASKED_LM_MAPPING,
@@ -24,7 +27,8 @@ from transformers.trainer_utils import seed_worker
 from peft import LoraConfig, get_peft_model
 
 from llm2vec import LLM2Vec
-from llm2vec.dataset.utils import load_dataset
+#from llm2vec.dataset.utils import load_dataset
+from datasets import load_dataset
 from llm2vec.loss.utils import load_loss
 
 from tqdm import tqdm
@@ -140,6 +144,19 @@ class ModelArguments:
             "choices": ["mean", "weighted_mean", "eos_token"],
         },
     )
+    cache_dir: Optional[str] = field(
+        default=None,
+        metadata={"help": "Where to cache the pretrained models and datasets."},
+    )
+    token: str = field(
+        default=None,
+        metadata={
+            "help": (
+                "The token to use as HTTP bearer authorization for remote files. If not specified, will use the token "
+                "generated when running `huggingface-cli login` (stored in `~/.huggingface`)."
+            )
+        },
+    )
 
 
 @dataclass
@@ -165,6 +182,11 @@ class DataTrainingArguments:
             )
         },
     )
+    #added this to handel oscar
+    dataset_config_name: Optional[str] = field(
+        default=None,
+        metadata={"help": "The configuration name of the dataset to use (e.g., 'unshuffled_deduplicated_en')"},
+    )
 
 
 @dataclass
@@ -184,7 +206,7 @@ class CustomArguments:
     lora_r: int = field(default=8, metadata={"help": "The r value for lora"})
 
     stop_after_n_steps: int = field(
-        default=10000, metadata={"help": "Stop training after n steps"}
+        default=1000, metadata={"help": "Stop training after n steps"}
     )
 
     experiment_id: Optional[str] = field(
@@ -323,20 +345,43 @@ def main():
     if training_args.gradient_checkpointing:
         training_args.gradient_checkpointing_kwargs = {"use_reentrant": False}
 
-    train_dataset = load_dataset(
+    """train_dataset = load_dataset(
         data_args.dataset_name,
         split="train",
         file_path=data_args.dataset_file_path,
+    )"""
+    #added this to download oscar dataset
+    raw_datasets = load_dataset(
+        data_args.dataset_name,
+        data_args.dataset_config_name,
+        cache_dir=model_args.cache_dir,
+        token=model_args.token,
+        streaming=True,
+        trust_remote_code=True
     )
 
+    # Get the training stream
+    train_dataset = raw_datasets["train"]
+
+    # Stream just the first N examples
+    max_train_samples = getattr(data_args, "max_train_samples", None) or 100000
+
     train_examples = [
+        TrainSample(texts=[ex["text"], ex["text"]], label=1.0)
+        for ex in tqdm(
+            islice(train_dataset, max_train_samples),
+            desc="Loading train examples...",
+            disable=not accelerator.is_main_process,
+        )
+    ]   
+    """train_examples = [
         train_dataset[i]
         for i in tqdm(
             range(len(train_dataset)),
             desc="Loading train examples...",
             disable=not accelerator.is_main_process,
         )
-    ]
+    ]"""
 
     torch_dtype = (
         model_args.torch_dtype

@@ -1,8 +1,9 @@
 {
     "model_name_or_path": "dicta-il/dictalm2.0-instruct",
-    "dataset_name": "beniben0/very-small-chat-dataset",
-    "per_device_train_batch_size": 16,
-    "per_device_eval_batch_size": 16,
+    "dataset_name": "oscar-corpus/oscar",
+    "dataset_config_name": "unshuffled_deduplicated_he",
+    "per_device_train_batch_size": 32,
+    "per_device_eval_batch_size": 32,
     "gradient_accumulation_steps": 1,
     "do_train": true,
     "do_eval": true,
