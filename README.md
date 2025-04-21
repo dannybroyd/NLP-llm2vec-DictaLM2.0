@@ -53,7 +53,7 @@ pip install googletrans
 
 ## 4. Training Linear Classifiers
 
-1. **Train classifiers**:
+**Train classifiers**:
    ```bash
    cd Dicta_LM_experiments/linear_classifier
    python baseline.py                # Decoder-only baseline
