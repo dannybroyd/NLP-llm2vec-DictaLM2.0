@@ -53,12 +53,7 @@ pip install googletrans
 
 ## 4. Training Linear Classifiers
 
-1. **Download dataset**:
-   - Place the HebSentiment dataset under:
-     ```
-Dicta_LM_experiments/linear_classifier/data
-```  
-2. **Train classifiers**:
+1. **Train classifiers**:
    ```bash
    cd Dicta_LM_experiments/linear_classifier
    python baseline.py                # Decoder-only baseline
