@@ -1,0 +1,45 @@
+Loading Dataset...
+CUDA is available. Using device: NVIDIA L40S
+Generating llm2vec embeddings...
+Loading embeddings from embeddings/llm2vec_embeddings_train.npy
+Loading embeddings from embeddings/llm2vec_embeddings_test.npy
+embeddings dim:  (35135, 4096)
+Prepare llm2vec for Training (data split)...
+Encode string labels
+Evaluation:
+Training Logistic Regression on llm2vec embeddings...
+llm2vec Classification Report:
+              precision    recall  f1-score   support
+
+    Negative       0.71      0.73      0.72       433
+     Neutral       0.82      0.82      0.82      1234
+    Positive       0.76      0.75      0.75       503
+
+    accuracy                           0.78      2170
+   macro avg       0.76      0.76      0.76      2170
+weighted avg       0.78      0.78      0.78      2170
+
+Training Neural Network (MLP) on llm2vec embeddings...
+llm2vec Classification Report:
+              precision    recall  f1-score   support
+
+    Negative       0.79      0.78      0.78       433
+     Neutral       0.83      0.86      0.84      1234
+    Positive       0.77      0.71      0.74       503
+
+    accuracy                           0.81      2170
+   macro avg       0.80      0.78      0.79      2170
+weighted avg       0.81      0.81      0.81      2170
+
+Training Random Forest on llm2vec embeddings...
+llm2vec Classification Report:
+              precision    recall  f1-score   support
+
+    Negative       0.84      0.30      0.44       433
+     Neutral       0.65      0.97      0.78      1234
+    Positive       0.86      0.33      0.48       503
+
+    accuracy                           0.69      2170
+   macro avg       0.78      0.53      0.57      2170
+weighted avg       0.74      0.69      0.64      2170
+
